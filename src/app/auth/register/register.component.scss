@@ -1,0 +1,48 @@
+.example-card {
+  width: 22%;
+  margin: 0 auto;
+}
+
+.example-card-2 {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.color-label{
+  color: #c6c6c6;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-95 {
+  width: 95%;
+}
+
+.tac {
+  text-align: center;
+}
+
+.mt-40 {
+  margin-top: 40px;
+}
+
+.mt-30 {
+  margin-top: 30px;
+}
+
+// stepper
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-form-field {
+  margin-top: 16px;
+}
+
+.green {
+  color: white;
+  // background: #466eff;
+  background: var(--btn-blue);
+}

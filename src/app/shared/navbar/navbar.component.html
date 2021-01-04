@@ -1,0 +1,30 @@
+<nav class="bg">
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <div class="content-navbar">
+        <div class="menu-items w80">
+          <button (click)="openSidenav()" mat-icon-button><mat-icon>menu</mat-icon></button>
+          <!-- <a class="navbar-brand" routerLink="/pr">SMASHUP</a> -->
+          <a class="navbar-brand">SMASHUP</a>
+        </div>
+        <div class="df navbarViolet w20" *ngIf="user$ | async as user; else login">
+          <div class="nav-item">
+              <a routerLink="/profile" class="">{{ user?.email }}</a>
+          </div>
+          
+          <div class="nav-item" *ngIf="user">
+              <a class="" (click)="onLogout()">Cerrar sesión</a>
+          </div>
+        </div>
+      </div>
+      <ng-template #login>
+        <div class="df navbarViolet w20" >
+          <div class="nav-item" *ngIf="!user">
+            <a class="nav-link tdn" routerLink="/register">REGISTRO</a>
+          </div>
+          <div class="nav-item" *ngIf="!user">
+            <a class="nav-link" routerLink="/login">LOGIN</a>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </nav>

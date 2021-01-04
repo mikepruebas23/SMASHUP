@@ -1,0 +1,82 @@
+<div class="profile-container">
+  <div class="w30">
+    <mat-card class="example-card">
+      <mat-card-content>
+    
+        <br>
+    
+        <div class="content-img-profile">
+          <img #imageUser class="img-profile" src="{{urlImage2}}" (click)="clickIMG()" alt="">
+        </div>
+        <input #fileInput type="file" accept=".png, .jpg" class="d-none" (change)="onUpload($event)">
+    
+        <br>
+    
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+            [style.width]="(uploadPercent | async ) + '%'"></div>
+        </div>
+    
+        <br>
+    
+        <form [formGroup]="loginForm" (ngSubmit)="updateUser()">
+    
+    
+          <mat-form-field class="form-group w-100" appearance="outline">
+            <mat-label>TAGNAME</mat-label>
+            <input matInput #input class="form-control" formControlName="tagName" placeholder="tagName" autocomplete="off">
+          </mat-form-field>
+          
+          <div class="form-group w-100" appearance="outline" *ngIf="isHeroActived">
+            <div>HERO: {{objHeroToPlay.name}}</div>
+          </div>
+
+          <br>
+    
+          <button type="submit" class="w-100  mt-30 green" mat-flat-button [disabled]="isDisabled">ACTUALIZAR</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="w70">
+    <mat-card class="cardHero">
+      <div class="hero-container" *ngIf="!isHeroActived">
+        <div class="hero-details" *ngFor="let hero of heroes">
+          <div class="hero-card" (click)="selectAHero(hero)">
+            <div>{{hero.name}}</div>
+            <div>{{hero.life}}</div>
+            <div>{{hero.atk}}</div>
+            <div>{{hero.def}}</div>
+            <div>{{isHeroActived}}</div>
+          </div>
+          <div class="hero-details">
+            <div>{{hero.details}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-container" *ngIf="isHeroActived">
+        <div>{{objHeroToPlay.name}}</div>
+        <div>{{objHeroToPlay.life}}</div>
+        <div>{{objHeroToPlay.atk}}</div>
+        <div>{{objHeroToPlay.def}}</div>
+        <div>{{objHeroToPlay.exp}}</div>
+        <div>Level: {{objHeroToPlay.lvl}}</div>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar"
+            [style.width]="(heroLvlPercent) + '%'"></div>
+        </div>
+        <br>
+        <button (click)="lvlup()">LVL UP</button>
+        <!-- <div class="progress">
+          <div class="progress-bar progress-bar-striped bg-success" role="progressbar" mode="determinate" value="40"></div>
+        </div> -->
+      </div>
+    </mat-card>
+  </div>
+</div>
+
+
+
+
