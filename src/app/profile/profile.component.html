@@ -27,9 +27,9 @@
             <input matInput #input class="form-control" formControlName="tagName" placeholder="tagName" autocomplete="off">
           </mat-form-field>
           
-          <div class="form-group w-100" appearance="outline" *ngIf="isHeroActived">
+          <!-- <div class="form-group w-100" appearance="outline" *ngIf="isHeroActived">
             <div>HERO: {{objHeroToPlay.name}}</div>
-          </div>
+          </div> -->
 
           <br>
     
@@ -38,8 +38,10 @@
       </mat-card-content>
     </mat-card>
   </div>
-
-  <div class="w70">
+  <div class="section-deck">
+    <app-deck></app-deck>
+  </div>
+  <!-- <div class="w70">
     <mat-card class="cardHero">
       <div class="hero-container" *ngIf="!isHeroActived">
         <div class="hero-details" *ngFor="let hero of heroes">
@@ -69,12 +71,12 @@
         </div>
         <br>
         <button (click)="lvlup()">LVL UP</button>
-        <!-- <div class="progress">
+       <div class="progress">
           <div class="progress-bar progress-bar-striped bg-success" role="progressbar" mode="determinate" value="40"></div>
-        </div> -->
+        </div> 
       </div>
     </mat-card>
-  </div>
+  </div> -->
 </div>
 
 

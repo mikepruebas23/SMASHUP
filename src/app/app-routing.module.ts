@@ -9,6 +9,8 @@ import { MiTablaComponent } from '../app/mi-tabla/mi-tabla.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { ContactComponent } from './contact/contact.component';
 import { RegisterCodeComponent } from './register-code/register-code.component';
+import { HistoryComponent } from './history/history.component';
+import { DeckComponent } from './deck/deck.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -24,7 +26,9 @@ const routes: Routes = [
   { path: 'user-details/:id/:pos',component: UserDetailsComponent , canActivate:  [CanSuscriptorGuard]},
   { path: 'pr', component: MiTablaComponent, canActivate: [CanSuscriptorGuard]  },
   { path: 'contacto', component: ContactComponent },
-  { path: 'register-code', component: RegisterCodeComponent }
+  { path: 'register-code', component: RegisterCodeComponent },
+  { path: 'history', component: HistoryComponent },
+  { path: 'deck', component: DeckComponent }
 ];
 
 @NgModule({

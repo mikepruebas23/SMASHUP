@@ -13,23 +13,19 @@ import { AngularFireStorageModule } from '@angular/fire/storage';;
 import { environment } from './../environments/environment';
 import { SendEmailComponent } from './auth/send-email/send-email.component';
 import { AuthService } from './auth/services/auth.service';
-import { CanEditGuard } from './auth/guards/can-edit.guard';
-import { CanAdminGuard } from './auth/guards/can-admin.guard';
-import { CanSuscriptorGuard } from './auth/guards/can-suscriptor.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatSliderModule } from '@angular/material/slider';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
-import {MatSelectModule} from '@angular/material/select';
-import {MatInputModule} from '@angular/material/input';
-import {MatIconModule} from '@angular/material/icon';
-import {FormsModule} from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 import { ProfileComponent } from './profile/profile.component';
 
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
+import { MatCardModule} from '@angular/material/card';
+import { MatButtonModule} from '@angular/material/button';
 import { MiTablaComponent } from './mi-tabla/mi-tabla.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -37,12 +33,14 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 
-// import {MatStepperModule} from '@angular/material/stepper';
-
 import { SideNavComponent } from './layout/side-nav/side-nav.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { ContactComponent } from './contact/contact.component';
 import { RegisterCodeComponent } from './register-code/register-code.component';
+import { HistoryComponent } from './history/history.component';
+import { LevelsComponent } from './levels/levels.component';
+import { DeckComponent } from './deck/deck.component';
+
 
 
 @NgModule({
@@ -55,7 +53,11 @@ import { RegisterCodeComponent } from './register-code/register-code.component';
     SideNavComponent,
     UserDetailsComponent,
     ContactComponent,
-    RegisterCodeComponent
+    RegisterCodeComponent,
+    HistoryComponent,
+    LevelsComponent,
+    DeckComponent
+
   ],
   imports: [
     BrowserModule,
@@ -71,11 +73,10 @@ import { RegisterCodeComponent } from './register-code/register-code.component';
     MatCardModule, MatButtonModule, MatTableModule, MatPaginatorModule, MatSortModule,
     MatToolbarModule,
     MatSidenavModule,
-    // MatStepperModule
     
   ],
   exports: [SideNavComponent],
-  providers: [AuthService,CanEditGuard,CanAdminGuard,CanSuscriptorGuard],
+  providers: [AuthService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

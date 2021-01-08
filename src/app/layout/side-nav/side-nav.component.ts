@@ -1,6 +1,4 @@
-import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
@@ -30,7 +28,6 @@ export class SideNavComponent implements OnInit {
 
   onToggleSidenav(didOpenClose: boolean){
     this.opened = didOpenClose;
-    
   }
 
   toCloseMenu(){
