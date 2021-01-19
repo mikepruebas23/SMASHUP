@@ -3,9 +3,103 @@ export interface Cards {
         name: string,
         atk: number,
         def: number;
-    } ;
-    card2?: any;
-    card3?: any;
-    card4?: any;
-    card5?: any;
+        lvl: number;
+        life: number;
+    };
+    card2?: {
+        name: string,
+        atk: number,
+        def: number;
+        lvl: number;
+        life: number;
+    };
+
 }
+
+export const AllCards = [
+    {
+        name: "Falcon",
+        atk: 1,
+        def: 1,
+        lvl: 1,
+        life: 1,
+    },
+    {
+        name: "Cloud",
+        atk: 1,
+        def: 1,
+        lvl: 1,
+        life: 1,
+    },
+    {
+        name: "Falcon",
+        atk: 1,
+        def: 1,
+        lvl: 1,
+        life: 1,
+    },
+    {
+        name: "Cloud",
+        atk: 1,
+        def: 1,
+        lvl: 1,
+        life: 1,
+    },
+    {
+        name: "Falcon",
+        atk: 1,
+        def: 1,
+        lvl: 1,
+        life: 1,
+    },
+    {
+        name: "Cloud",
+        atk: 1,
+        def: 1,
+        lvl: 1,
+        life: 1,
+    },
+    {
+        name: "Falcon",
+        atk: 1,
+        def: 1,
+        lvl: 1,
+        life: 1,
+    },
+    {
+        name: "Cloud",
+        atk: 1,
+        def: 1,
+        lvl: 1,
+        life: 1,
+    },
+    {
+        name: "Falcon",
+        atk: 1,
+        def: 1,
+        lvl: 1,
+        life: 1,
+    },
+    {
+        name: "Cloud",
+        atk: 1,
+        def: 1,
+        lvl: 1,
+        life: 1,
+    },
+    {
+        name: "Falcon",
+        atk: 1,
+        def: 1,
+        lvl: 1,
+        life: 1,
+    },
+    {
+        name: "Cloud",
+        atk: 1,
+        def: 1,
+        lvl: 1,
+        life: 1,
+    }
+    
+];

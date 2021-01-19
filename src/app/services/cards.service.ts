@@ -14,23 +14,28 @@ export class CardsService   {
       private afs: AngularFirestore
     ) { }
   
+    ID = '8TbeeHigBXhqfKTrV1cNyQfZhwr2';
 
   //CREATE
-  // public async createCodeFriend(ID: string){
-  //     await this.afs.collection(this.COLLECTION).doc(ID).set({
-  //         valid: true,
-  //     });
-  // }
+  public async exampleCreate(data){
+    try{
 
-  exampleCreate(data){ 
-    return new Promise<any>((resolve, reject) => { 
-       this.afs
-           .collection("cards")
-           .add(data)
-           .then(
-               res => {return res}, 
-               err => reject(err)
-           )
+      await this.afs.collection(this.COLLECTION).doc(this.ID).set(data);
+      console.log('%c Guardado! ', 'background: #222; color: #bada55');
     }
- )}
+    catch(error){
+      console.log(error);
+    }
+  }
+//   exampleCreate(data){ 
+//     return new Promise<any>((resolve, reject) => { 
+//        this.afs.doc(this.ID)
+//            .collection("cards")
+//            .add(data)
+//            .then(
+//                res => {return res}, 
+//                err => reject(err)
+//            )
+//     }
+//  )}
 }

@@ -1,4 +1,17 @@
 <p>selecciona tu deck</p>
 <div>
+    <div *ngFor="let card of collectionCards" class="content-cards">
+        <div class="card-character">
+            <div>{{card.name}}</div>
+
+        </div>
+    </div>
+    <br>
+    <hr>
+    <div class="deck">
+        <div class="card-character"></div>
+    </div>
+    <br>
     <button (click)=selectDeck()>Selecciona tu deck</button>
+    
 </div>
