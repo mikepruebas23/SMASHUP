@@ -17,25 +17,20 @@ export class CardsService   {
     ID = '8TbeeHigBXhqfKTrV1cNyQfZhwr2';
 
   //CREATE
-  public async exampleCreate(data){
+  public async selectToMyHand(data){
     try{
-
-      await this.afs.collection(this.COLLECTION).doc(this.ID).set(data);
+      console.log(data);
+      await this.afs.collection(this.COLLECTION).doc(this.ID).collection(this.COLLECTION).doc(data.id).set(data);
       console.log('%c Guardado! ', 'background: #222; color: #bada55');
     }
     catch(error){
       console.log(error);
     }
   }
-//   exampleCreate(data){ 
-//     return new Promise<any>((resolve, reject) => { 
-//        this.afs.doc(this.ID)
-//            .collection("cards")
-//            .add(data)
-//            .then(
-//                res => {return res}, 
-//                err => reject(err)
-//            )
-//     }
-//  )}
+
+  //Get all cards
+  public async getAllCards(){
+    let response: any = await this.afs.collection(this.COLLECTION).doc(this.ID).collection(this.COLLECTION);
+    return response;
+  }
 }

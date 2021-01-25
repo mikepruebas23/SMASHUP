@@ -1,0 +1,17 @@
+
+<div class="store">
+    <h3>STORE</h3>
+    <div *ngFor="let card of collectionCards; let i = index" class="content-cards">
+        <div class="card-character" id="{{card.id}}">
+            <div>{{card.name}}</div>
+            <div>{{card.stock}}</div>
+        </div>
+        <button (click)="buyCard(i)">Buy</button>
+    </div>
+    <br>
+    <br>
+    <button (click)="createANormalCard()">Create Card</button>
+    <br>
+</div>
+
+

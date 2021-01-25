@@ -1,5 +1,4 @@
-
-.deck{
+.store{
     margin: 0 auto;
     text-align: center;
     width: 90%;
@@ -7,12 +6,11 @@
     background-color: #fff;
     box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 }
+
 .content-cards{
     display: inline-block;
 }
-.content-cards-deck{
-    display: inline-flex;
-}
+
 .card-character{
     color: black;
     padding: 5px;
@@ -22,8 +20,4 @@
     border: 1px solid black;
     margin: 5px;
     border-radius: 3px;
-}
-
-.card-select{
-    border: 2px solid red;
 }

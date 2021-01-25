@@ -40,6 +40,7 @@ import { RegisterCodeComponent } from './register-code/register-code.component';
 import { HistoryComponent } from './history/history.component';
 import { LevelsComponent } from './levels/levels.component';
 import { DeckComponent } from './deck/deck.component';
+import { StoreComponent } from './store/store.component';
 
 
 
@@ -56,7 +57,8 @@ import { DeckComponent } from './deck/deck.component';
     RegisterCodeComponent,
     HistoryComponent,
     LevelsComponent,
-    DeckComponent
+    DeckComponent,
+    StoreComponent
 
   ],
   imports: [

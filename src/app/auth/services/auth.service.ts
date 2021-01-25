@@ -50,6 +50,7 @@ export class AuthService extends RoleValidator {
     {
       const { user } = await this.afAuth.signInWithEmailAndPassword(email, password);
       // this.getUser(user.uid, email, user.emailVerified);
+      console.log(user);
       return user;
     } catch (error) 
     {
