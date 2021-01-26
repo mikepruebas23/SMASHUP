@@ -16,13 +16,13 @@ export class StoreComponent implements OnInit {
   card = {
     atk: 1,
     def: 1,
-    evolve:0,
-    id:"DK",
+    evolve: 1,
+    id:"KEN",
     life: 1,
     lvl: 1,
-    name: "DK",
+    name: "KEN",
     price: 0,
-    stock: 3,
+    stock: 2,
     type: 'normal'
   }
 

@@ -3,9 +3,15 @@
     <div *ngFor="let card of collectionCards; let i= index" class="content-cards">
         <div (click)="changeCard(i)">
             <div class="card-character" id="{{card.id}}">
-                <div>{{card.name}}</div>
-                <div>{{card.stock}}</div>
+                <div>Name: {{card.name}}</div>
+                <div>Stock: {{card.stock}}</div>
+                <div>Level: {{card.lvl}}</div>
+                <div>Evolve: {{card.evolve}}</div>
+                <div id="barr">
+                    <div id="progress"></div>
+                </div>
             </div>
+            <button (click)="checkUpgradeCard(i)">Upgrade</button>
 
         </div>
     </div>
@@ -14,10 +20,15 @@
     <p>Cartas para jugar</p>
     <div id="myDeckList" class="content-cards-deck">
         <div *ngFor="let card of myDeck; let i=index" class="content-cards">
-            <div (click)="changeCard(i)">
+            <button (click)="removeCardFromHand(i)">
+                <span class="material-icons">close</span>
+            </button>
+            <div>
                 <div class="card-character">
-                    <div>{{card.name}}</div>
-                    <!-- <div>{{card[i].stock}}</div> -->
+                    <div>Name: {{card.name}}</div>
+                    <div>Stock: {{card.stock}}</div>
+                    <div>Level: {{card.lvl}}</div>
+                    <div>Evolve: {{card.evolve}}</div>
                 </div>
     
             </div>

@@ -22,6 +22,7 @@ export class DeckComponent implements OnInit {
   collectionCards: {};
   myDeck :any =[];
   index: number;
+  limitCard = [];
 
   objCards: Cards = {
     card1 : {
@@ -49,29 +50,51 @@ export class DeckComponent implements OnInit {
   }
 
   ngOnInit() {
-    //get my all cards
-    this._DeckService.getAllDeck().then(res => {
-      res.valueChanges().subscribe( response => {
-        // console.log(response);
-          this.collectionCards = response;
-      })
-    }); 
+    this.refreshMyDeck(1);
+    this.refreshMyHand();
     
-    //get my Deck
-    this._CardsService.getAllCards().then(res => {
+  }
+
+  refreshMyDeck(value, index?){
+    //get my all cards
+    if(value == 1){
+      this._DeckService.getAllDeck().then(res => {
+        res.valueChanges().subscribe( response => {
+          // console.log(response);
+            this.collectionCards = response;
+            this.fillBar(this.collectionCards);
+        })
+      });
+    }
+    else {
+      this._DeckService.getAllDeck().then(res => {
+        res.valueChanges().subscribe( response => {
+          // console.log(response);
+            this.collectionCards = response;
+            this.limitCard.push(response);
+            let card = this.collectionCards[index];
+
+            this._CardsService.selectToMyHand(card);
+
+        })
+      });
+    }
+  }
+
+  refreshMyHand(){
+    let collection = this._CardsService.getAllCards().then(res => {
       res.valueChanges().subscribe( response => {
-        console.log(response);
-        // let i;
-        // for(i=0; i<= response[0].length; i++){
-        //   console.log(response[0]);
-        //   this.myDeck.push(response[0][i]);
-        //   console.log(this.myDeck);
-        // }
         this.myDeck = response;
       })
     }); 
-
-    // console.log( this.myDeck[0]);
+  }
+  fillBar(data){
+    let barr = document.getElementById('barr'); 
+    // console.log("FILL BAR: ",data);
+    console.log(barr);
+    let limit = 20;
+    let percent1 = 100 / limit * limit;
+    // bar.style.width =  percent1 + '%';
   }
 
   // selectDeck(){
@@ -120,14 +143,40 @@ export class DeckComponent implements OnInit {
     }
   }
 
-
   changeCard(index){
     this.index = index;
     let i = this.collectionCards[index];
-    let id = i.id;
-    let stock = i.stock
 
-    console.log(i);
-    this._CardsService.selectToMyHand(i);
+    if(this.myDeck.length <= 4){
+
+      this._CardsService.selectToMyHand(i);
+    }
+    else {
+      this.showMesagge("Your hand is full!");
+    }
+  }
+
+  //delete card from hand
+  removeCardFromHand(index){
+    let i = this.myDeck[index];
+    this._CardsService.removeCardFromHand(i);
+  }
+
+  checkUpgradeCard(index){
+    let card = this.collectionCards[index];
+    let stock = this.collectionCards[index].stock;
+    let evolve = this.collectionCards[index].evolve;
+    
+    if(stock >= evolve){
+      this._DeckService.updateLevelCard(card);
+      this.refreshMyDeck(2, index);
+    }
+    else {
+      this.showMesagge("cant Upgrade");
+    }
+  }
+
+  showMesagge(messagge: string){
+    console.log(messagge);
   }
 }
